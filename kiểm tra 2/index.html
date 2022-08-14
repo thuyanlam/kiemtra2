@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <center>
+    <div class="login">
+     <form onsubmit="signin()">
+        <h2>Sign in</h2>
+        <br>
+        <p>Stay updated on your professional world</p>
+        <br>
+        <input type="text" placeholder=" Enter Email or Phone" id="EmailorPhone">
+        <br>
+        <input type="password" placeholder="Enter Password" id="Password">
+        <br>
+        <a href="#">forgot password ?</a>
+        <br>
+        <button>Sign in</button>
+    </form>
+    </div>
+</center>
+<script>
+let arr1=[["Email","NguyễnVănA@gmail.com"],["phone",'1234567890'],["Password",'Vana12345']];
+function signin(e) {
+    var EmailorPhone=document.getElementById("EmailorPhone").value;
+    var Password=document.getElementById("Password").value;
+    var user=localStorage.getItem(EmailorPhone);
+    var user={
+        EmailorPhone : EmailorPhone,
+        Password : Password,
+    }
+    var jison=JSON.stringify(EmailorPhone,json);
+    var data = JSON.parse(user);
+
+    if (user==null) {
+        alert("Vui lòng nhập email ,password");
+    }
+    else if (
+        EmailorPhone==data.EmailorPhone &&
+        Password==data.Password
+    ) {
+        alert("đăng nhập thành công");
+    }else{
+        alert("đăng nhập thất bại");
+    }
+    }
+</script>
+</body>
+</html>
